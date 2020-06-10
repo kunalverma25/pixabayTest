@@ -3,27 +3,68 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6DD27E72F48A8244EF0EE058 /* Pods_PixabaySearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF6FB58717230899CE82742 /* Pods_PixabaySearch.framework */; };
 		C7BACA5124907A3300C4FFCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA5024907A3300C4FFCF /* AppDelegate.swift */; };
 		C7BACA5324907A3300C4FFCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA5224907A3300C4FFCF /* SceneDelegate.swift */; };
-		C7BACA5524907A3300C4FFCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA5424907A3300C4FFCF /* ViewController.swift */; };
-		C7BACA5824907A3300C4FFCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7BACA5624907A3300C4FFCF /* Main.storyboard */; };
+		C7BACA5824907A3300C4FFCF /* SearchAndListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7BACA5624907A3300C4FFCF /* SearchAndListing.storyboard */; };
 		C7BACA5A24907A3500C4FFCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7BACA5924907A3500C4FFCF /* Assets.xcassets */; };
 		C7BACA5D24907A3500C4FFCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7BACA5B24907A3500C4FFCF /* LaunchScreen.storyboard */; };
+		C7BACA6C24907DAF00C4FFCF /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA6B24907DAF00C4FFCF /* AppConstants.swift */; };
+		C7BACA7324907EE500C4FFCF /* ImageSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA6D24907EE500C4FFCF /* ImageSearchPresenter.swift */; };
+		C7BACA7424907EE500C4FFCF /* ImageSearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA6E24907EE500C4FFCF /* ImageSearchWorker.swift */; };
+		C7BACA7524907EE500C4FFCF /* ImageSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA6F24907EE500C4FFCF /* ImageSearchRouter.swift */; };
+		C7BACA7624907EE500C4FFCF /* ImageSearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA7024907EE500C4FFCF /* ImageSearchModels.swift */; };
+		C7BACA7724907EE500C4FFCF /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA7124907EE500C4FFCF /* ImageSearchViewController.swift */; };
+		C7BACA7824907EE500C4FFCF /* ImageSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA7224907EE500C4FFCF /* ImageSearchInteractor.swift */; };
+		C7BACA7B2490800200C4FFCF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA7A2490800200C4FFCF /* StringExtensions.swift */; };
+		C7BACA942490866700C4FFCF /* PixabayNetworkingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7BACA932490866700C4FFCF /* PixabayNetworkingKit.framework */; };
+		C7BACA952490866700C4FFCF /* PixabayNetworkingKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7BACA932490866700C4FFCF /* PixabayNetworkingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7BACA992490882600C4FFCF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACA982490882600C4FFCF /* R.generated.swift */; };
+		C7BACABA2490963200C4FFCF /* PixabayDataStorageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7BACAB92490963200C4FFCF /* PixabayDataStorageKit.framework */; };
+		C7BACABB2490963200C4FFCF /* PixabayDataStorageKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7BACAB92490963200C4FFCF /* PixabayDataStorageKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C7BACA962490866800C4FFCF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C7BACABB2490963200C4FFCF /* PixabayDataStorageKit.framework in Embed Frameworks */,
+				C7BACA952490866700C4FFCF /* PixabayNetworkingKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		27D4DBC49ADF4689430557F5 /* Pods-PixabaySearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixabaySearch.release.xcconfig"; path = "Target Support Files/Pods-PixabaySearch/Pods-PixabaySearch.release.xcconfig"; sourceTree = "<group>"; };
+		9AF6FB58717230899CE82742 /* Pods_PixabaySearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PixabaySearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7BACA4D24907A3300C4FFCF /* PixabaySearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixabaySearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7BACA5024907A3300C4FFCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7BACA5224907A3300C4FFCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C7BACA5424907A3300C4FFCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C7BACA5724907A3300C4FFCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7BACA5724907A3300C4FFCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchAndListing.storyboard; sourceTree = "<group>"; };
 		C7BACA5924907A3500C4FFCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7BACA5C24907A3500C4FFCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7BACA5E24907A3500C4FFCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7BACA6B24907DAF00C4FFCF /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		C7BACA6D24907EE500C4FFCF /* ImageSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchPresenter.swift; sourceTree = "<group>"; };
+		C7BACA6E24907EE500C4FFCF /* ImageSearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchWorker.swift; sourceTree = "<group>"; };
+		C7BACA6F24907EE500C4FFCF /* ImageSearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchRouter.swift; sourceTree = "<group>"; };
+		C7BACA7024907EE500C4FFCF /* ImageSearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchModels.swift; sourceTree = "<group>"; };
+		C7BACA7124907EE500C4FFCF /* ImageSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchViewController.swift; sourceTree = "<group>"; };
+		C7BACA7224907EE500C4FFCF /* ImageSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchInteractor.swift; sourceTree = "<group>"; };
+		C7BACA7A2490800200C4FFCF /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		C7BACA932490866700C4FFCF /* PixabayNetworkingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PixabayNetworkingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7BACA982490882600C4FFCF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		C7BACAB92490963200C4FFCF /* PixabayDataStorageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PixabayDataStorageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D650354D4A0E8714DDA1B0A4 /* Pods-PixabaySearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixabaySearch.debug.xcconfig"; path = "Target Support Files/Pods-PixabaySearch/Pods-PixabaySearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +72,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7BACA942490866700C4FFCF /* PixabayNetworkingKit.framework in Frameworks */,
+				6DD27E72F48A8244EF0EE058 /* Pods_PixabaySearch.framework in Frameworks */,
+				C7BACABA2490963200C4FFCF /* PixabayDataStorageKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		262A0C8CC87F236D2F640244 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACAB92490963200C4FFCF /* PixabayDataStorageKit.framework */,
+				C7BACA932490866700C4FFCF /* PixabayNetworkingKit.framework */,
+				9AF6FB58717230899CE82742 /* Pods_PixabaySearch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8C810D033C87BA37281B723A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D650354D4A0E8714DDA1B0A4 /* Pods-PixabaySearch.debug.xcconfig */,
+				27D4DBC49ADF4689430557F5 /* Pods-PixabaySearch.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C7BACA4424907A3300C4FFCF = {
 			isa = PBXGroup;
 			children = (
 				C7BACA4F24907A3300C4FFCF /* PixabaySearch */,
 				C7BACA4E24907A3300C4FFCF /* Products */,
+				8C810D033C87BA37281B723A /* Pods */,
+				262A0C8CC87F236D2F640244 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +121,79 @@
 		C7BACA4F24907A3300C4FFCF /* PixabaySearch */ = {
 			isa = PBXGroup;
 			children = (
-				C7BACA5024907A3300C4FFCF /* AppDelegate.swift */,
-				C7BACA5224907A3300C4FFCF /* SceneDelegate.swift */,
-				C7BACA5424907A3300C4FFCF /* ViewController.swift */,
-				C7BACA5624907A3300C4FFCF /* Main.storyboard */,
-				C7BACA5924907A3500C4FFCF /* Assets.xcassets */,
-				C7BACA5B24907A3500C4FFCF /* LaunchScreen.storyboard */,
-				C7BACA5E24907A3500C4FFCF /* Info.plist */,
+				C7BACA6724907AA800C4FFCF /* Scenes */,
+				C7BACA7924907FE600C4FFCF /* Extensions */,
+				C7BACA6624907A9C00C4FFCF /* Resources */,
+				C7BACA6424907A5500C4FFCF /* AppConfigurations */,
 			);
 			path = PixabaySearch;
+			sourceTree = "<group>";
+		};
+		C7BACA6424907A5500C4FFCF /* AppConfigurations */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACA5B24907A3500C4FFCF /* LaunchScreen.storyboard */,
+				C7BACA5E24907A3500C4FFCF /* Info.plist */,
+				C7BACA5024907A3300C4FFCF /* AppDelegate.swift */,
+				C7BACA5224907A3300C4FFCF /* SceneDelegate.swift */,
+				C7BACA6B24907DAF00C4FFCF /* AppConstants.swift */,
+			);
+			path = AppConfigurations;
+			sourceTree = "<group>";
+		};
+		C7BACA6624907A9C00C4FFCF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACA982490882600C4FFCF /* R.generated.swift */,
+				C7BACA5924907A3500C4FFCF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C7BACA6724907AA800C4FFCF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACA6824907ACF00C4FFCF /* SearchAndListingScenes */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C7BACA6824907ACF00C4FFCF /* SearchAndListingScenes */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACA6A24907AF700C4FFCF /* SearchScene */,
+				C7BACA6924907AE200C4FFCF /* CommonUI */,
+			);
+			path = SearchAndListingScenes;
+			sourceTree = "<group>";
+		};
+		C7BACA6924907AE200C4FFCF /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACA5624907A3300C4FFCF /* SearchAndListing.storyboard */,
+			);
+			path = CommonUI;
+			sourceTree = "<group>";
+		};
+		C7BACA6A24907AF700C4FFCF /* SearchScene */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACA6D24907EE500C4FFCF /* ImageSearchPresenter.swift */,
+				C7BACA6E24907EE500C4FFCF /* ImageSearchWorker.swift */,
+				C7BACA6F24907EE500C4FFCF /* ImageSearchRouter.swift */,
+				C7BACA7024907EE500C4FFCF /* ImageSearchModels.swift */,
+				C7BACA7124907EE500C4FFCF /* ImageSearchViewController.swift */,
+				C7BACA7224907EE500C4FFCF /* ImageSearchInteractor.swift */,
+			);
+			path = SearchScene;
+			sourceTree = "<group>";
+		};
+		C7BACA7924907FE600C4FFCF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACA7A2490800200C4FFCF /* StringExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +203,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7BACA6124907A3500C4FFCF /* Build configuration list for PBXNativeTarget "PixabaySearch" */;
 			buildPhases = (
+				CB271F2BB736776303F35122 /* [CP] Check Pods Manifest.lock */,
+				C7BACA972490878F00C4FFCF /* R.Swift */,
 				C7BACA4924907A3300C4FFCF /* Sources */,
 				C7BACA4A24907A3300C4FFCF /* Frameworks */,
 				C7BACA4B24907A3300C4FFCF /* Resources */,
+				4028703C4B57E24327F5B928 /* [CP] Embed Pods Frameworks */,
+				C7BACA962490866800C4FFCF /* Embed Frameworks */,
+				C7BACA9A2490885900C4FFCF /* Swift Linting */,
 			);
 			buildRules = (
 			);
@@ -127,32 +261,120 @@
 			files = (
 				C7BACA5D24907A3500C4FFCF /* LaunchScreen.storyboard in Resources */,
 				C7BACA5A24907A3500C4FFCF /* Assets.xcassets in Resources */,
-				C7BACA5824907A3300C4FFCF /* Main.storyboard in Resources */,
+				C7BACA5824907A3300C4FFCF /* SearchAndListing.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4028703C4B57E24327F5B928 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PixabaySearch/Pods-PixabaySearch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PixabaySearch/Pods-PixabaySearch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PixabaySearch/Pods-PixabaySearch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7BACA972490878F00C4FFCF /* R.Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.Swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		C7BACA9A2490885900C4FFCF /* Swift Linting */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Linting";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		CB271F2BB736776303F35122 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PixabaySearch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C7BACA4924907A3300C4FFCF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7BACA5524907A3300C4FFCF /* ViewController.swift in Sources */,
+				C7BACA7824907EE500C4FFCF /* ImageSearchInteractor.swift in Sources */,
+				C7BACA7524907EE500C4FFCF /* ImageSearchRouter.swift in Sources */,
+				C7BACA7424907EE500C4FFCF /* ImageSearchWorker.swift in Sources */,
 				C7BACA5124907A3300C4FFCF /* AppDelegate.swift in Sources */,
 				C7BACA5324907A3300C4FFCF /* SceneDelegate.swift in Sources */,
+				C7BACA7B2490800200C4FFCF /* StringExtensions.swift in Sources */,
+				C7BACA7324907EE500C4FFCF /* ImageSearchPresenter.swift in Sources */,
+				C7BACA6C24907DAF00C4FFCF /* AppConstants.swift in Sources */,
+				C7BACA7624907EE500C4FFCF /* ImageSearchModels.swift in Sources */,
+				C7BACA7724907EE500C4FFCF /* ImageSearchViewController.swift in Sources */,
+				C7BACA992490882600C4FFCF /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C7BACA5624907A3300C4FFCF /* Main.storyboard */ = {
+		C7BACA5624907A3300C4FFCF /* SearchAndListing.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C7BACA5724907A3300C4FFCF /* Base */,
 			);
-			name = Main.storyboard;
+			name = SearchAndListing.storyboard;
 			sourceTree = "<group>";
 		};
 		C7BACA5B24907A3500C4FFCF /* LaunchScreen.storyboard */ = {
@@ -282,11 +504,13 @@
 		};
 		C7BACA6224907A3500C4FFCF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D650354D4A0E8714DDA1B0A4 /* Pods-PixabaySearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A6A3MT6B6;
-				INFOPLIST_FILE = PixabaySearch/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PixabaySearch/AppConfigurations/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,11 +524,13 @@
 		};
 		C7BACA6324907A3500C4FFCF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27D4DBC49ADF4689430557F5 /* Pods-PixabaySearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4A6A3MT6B6;
-				INFOPLIST_FILE = PixabaySearch/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PixabaySearch/AppConfigurations/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,0 +1,64 @@
+# rule identifiers to exclude from running
+disabled_rules:
+  - cyclomatic_complexity
+  - line_length
+  - identifier_name
+  - large_tuple
+  - function_parameter_count
+  - implicit_getter
+  - function_body_length
+  - type_name
+  - file_length
+  - type_body_length
+  - colon
+  - trailing_whitespace
+  - orphaned_doc_comment
+  - valid_ibinspectable
+
+# rule identifiers to opt in
+opt_in_rules:
+  - closure_end_indentation
+  - closure_spacing
+  - force_unwrapping
+  - explicit_init
+  - anyobject_protocol
+  - array_init
+  - block_based_kvo
+  - class_delegate_protocol
+  - closing_brace
+  - closure_parameter_position
+  - collection_alignment
+  - compiler_protocol_init
+  - deployment_target
+  - discarded_notification_center_observer
+  - discouraged_object_literal
+  - duplicate_enum_cases
+  - empty_string
+  - first_where
+  - last_where
+  - legacy_multiple
+  - legacy_random
+  - literal_expression_end_indentation
+  - notification_center_detachment
+  - overridden_super_call
+  - sorted_first_last
+  - empty_count
+  - redundant_string_enum_value
+  - unused_import
+
+# special configuration for rules 
+
+force_unwrapping: error
+nesting:
+    type_level: 3
+
+excluded:
+- Carthage
+- Pods
+- fastlane
+- vendor
+- R.generated.swift
+- ./*/R.generated.swift
+- ./*/Supporting Files
+
+reporter: "xcode"
