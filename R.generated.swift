@@ -89,7 +89,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 2 view controllers.
   struct segue {
     /// This struct is generated for `ImageSearchViewController`, and contains static references to 1 segues.
     struct imageSearchViewController {
@@ -102,6 +102,23 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func resultList(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ImageSearchViewController, ResultsListViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.imageSearchViewController.resultList, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
+    /// This struct is generated for `ResultsListViewController`, and contains static references to 1 segues.
+    struct resultsListViewController {
+      /// Segue identifier `FullScreenImage`.
+      static let fullScreenImage: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ResultsListViewController, FullScreenImageViewController> = Rswift.StoryboardSegueIdentifier(identifier: "FullScreenImage")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `FullScreenImage`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func fullScreenImage(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ResultsListViewController, FullScreenImageViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.resultsListViewController.fullScreenImage, segue: segue)
       }
       #endif
 
@@ -138,15 +155,60 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
+    /// Image `comment`.
+    static let comment = Rswift.ImageResource(bundle: R.hostingBundle, name: "comment")
     /// Image `launchScreenLogo`.
     static let launchScreenLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "launchScreenLogo")
+    /// Image `like`.
+    static let like = Rswift.ImageResource(bundle: R.hostingBundle, name: "like")
+    /// Image `placeHolder`.
+    static let placeHolder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeHolder")
+    /// Image `userImage`.
+    static let userImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "userImage")
+    /// Image `views`.
+    static let views = Rswift.ImageResource(bundle: R.hostingBundle, name: "views")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "comment", bundle: ..., traitCollection: ...)`
+    static func comment(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.comment, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "launchScreenLogo", bundle: ..., traitCollection: ...)`
     static func launchScreenLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.launchScreenLogo, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "like", bundle: ..., traitCollection: ...)`
+    static func like(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.like, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "placeHolder", bundle: ..., traitCollection: ...)`
+    static func placeHolder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeHolder, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "userImage", bundle: ..., traitCollection: ...)`
+    static func userImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.userImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "views", bundle: ..., traitCollection: ...)`
+    static func views(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.views, compatibleWith: traitCollection)
     }
     #endif
 
@@ -228,13 +290,20 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     #if os(iOS) || os(tvOS)
+    try nib.validate()
+    #endif
+    #if os(iOS) || os(tvOS)
     try storyboard.validate()
     #endif
   }
 
   #if os(iOS) || os(tvOS)
-  struct nib {
-    struct _ResultListingCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _ResultListingCell.validate()
+    }
+
+    struct _ResultListingCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = ResultListingCell
 
       let bundle = R.hostingBundle
@@ -243,6 +312,15 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ResultListingCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ResultListingCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "comment", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'comment' is used in nib 'ResultListingCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "like", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'like' is used in nib 'ResultListingCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "userImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'userImage' is used in nib 'ResultListingCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "views", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'views' is used in nib 'ResultListingCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}

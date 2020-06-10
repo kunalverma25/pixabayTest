@@ -24,18 +24,20 @@ public class NKURLRequest {
     public var requestObject: URLRequest?
     
     public init(urlPath: String, type: NKURLRequestType, header: [String: String]? = nil, parameters: [String: String]? = nil, body: Any? = nil) {
-        var queryString = urlPath.range(of: "?") != nil ? "&" : "?"
+        
+        var queryItems: [URLQueryItem] = []
+        guard var urlComps = URLComponents(string: urlPath) else {
+            return
+        }
+        
         if let params = parameters {
             for (key, value) in params {
-                queryString += key + "=" + value + "&"
+                queryItems.append(URLQueryItem(name: key, value: value))
             }
         }
+        urlComps.queryItems = queryItems
         
-        if let encodedString = queryString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            queryString = encodedString
-        }
-        
-        if let url = URL(string: urlPath + queryString) {
+        if let url = urlComps.url {
             requestObject = URLRequest(url: url)
             if let body = body as? [String: Any] {
                 self.requestObject?.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
@@ -47,6 +49,14 @@ public class NKURLRequest {
             } else if let body = body as? Data {
                 self.requestObject?.httpBody = body
             }
+            
+            if let header = header {
+                for (key, value) in header {
+                    self.requestObject?.setValue(value, forHTTPHeaderField: key)
+                }
+            }
+            
+            self.requestObject?.httpMethod = type.rawValue
             self.requestObject?.timeoutInterval = 60
             
             #if DEBUG

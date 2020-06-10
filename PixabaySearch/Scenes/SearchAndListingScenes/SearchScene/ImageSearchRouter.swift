@@ -30,5 +30,6 @@ class ImageSearchRouter: NSObject, ImageSearchRoutingLogic, ImageSearchDataPassi
     
     func passDataToResultList(source: ImageSearchDataStore, dest: inout ResultsListDataStore) {
         dest.searchResult = source.searchResult
+        dest.currentSearchQuery = source.currentSearchQuery
     }
 }

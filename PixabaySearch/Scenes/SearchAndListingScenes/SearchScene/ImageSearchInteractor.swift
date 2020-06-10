@@ -15,7 +15,8 @@ protocol ImageSearchBusinessLogic: AnyObject {
 
 protocol ImageSearchDataStore {
     var savedQueries: [String] { get set }
-    var searchResult: ImageSearch.PixSearchResult? { get set }
+    var currentSearchQuery: String? { get set }
+    var searchResult: PixSearchResult? { get set }
 }
 
 class ImageSearchInteractor: ImageSearchBusinessLogic, ImageSearchDataStore {
@@ -25,7 +26,8 @@ class ImageSearchInteractor: ImageSearchBusinessLogic, ImageSearchDataStore {
     
     // MARK: DataStore
     var savedQueries: [String] = []
-    var searchResult: ImageSearch.PixSearchResult?
+    var currentSearchQuery: String?
+    var searchResult: PixSearchResult?
     
     // MARK: Business Logic
     func fetchSavedQueries() {
@@ -52,10 +54,11 @@ class ImageSearchInteractor: ImageSearchBusinessLogic, ImageSearchDataStore {
         })
     }
     
-    func searchImagesCompleted(query: String, result: ImageSearch.PixSearchResult) {
+    func searchImagesCompleted(query: String, result: PixSearchResult) {
         searchResult = result
         storageWorker = ImageSearchStorageWorker()
         storageWorker?.saveQueryInDB(query)
+        currentSearchQuery = query
         presenter?.presentList()
     }
 }

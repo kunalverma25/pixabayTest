@@ -9,15 +9,17 @@
 import UIKit
 
 protocol ResultsListDisplayLogic: AnyObject {
-    func displaySomething()
+    func updateTable(for indexPaths: [IndexPath])
 }
 
 class ResultsListViewController: UIViewController, ResultsListDisplayLogic {
     var interactor: ResultsListBusinessLogic?
     var router: (NSObjectProtocol & ResultsListRoutingLogic & ResultsListDataPassing)?
     
-    // MARK: Object lifecycle
+    // MARK: Outlets
+    @IBOutlet weak var tableView: UITableView!
     
+    // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -59,16 +61,76 @@ class ResultsListViewController: UIViewController, ResultsListDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Search Results"
-        doSomething()
+        tableView.register(R.nib.resultListingCell)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LoadingCell")
+        tableView.rowHeight = 150
+        reloadTable()
     }
     
     // MARK: View Logic
+    //
     
-    func doSomething() {
-        interactor?.doSomething()
+    func updateTable(for indexPaths: [IndexPath]) {
+        let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
+        let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
+        tableView.reloadRows(at: Array(indexPathsIntersection), with: .automatic)
     }
     
-    func displaySomething() {
-        //nameTextField.text = viewModel.name
+    func reloadTable() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.prefetchDataSource = self
+        tableView.reloadData()
     }
+}
+
+extension ResultsListViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return router?.dataStore?.searchResult?.totalHits ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if isLoadingCell(for: indexPath) {
+            return getLoadingCell(from: tableView)
+        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.resultListingCell, for: indexPath) else {
+            return UITableViewCell()
+        }
+        guard let data = router?.dataStore?.searchResult?.imageList?[indexPath.row] else {
+            return UITableViewCell()
+        }
+        cell.configureCell(data: data)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? ResultListingCell else {
+            return
+        }
+        cell.cancelImageDownload()
+    }
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: isLoadingCell) {
+            interactor?.fetchMoreImages()
+        }
+    }
+    
+    func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        return indexPath.row >= router?.dataStore?.searchResult?.imageList?.count ?? 0
+    }
+    
+    func getLoadingCell(from tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell") ?? UITableViewCell()
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .systemRed
+        cell.contentView.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: cell.contentView.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
+        activityIndicator.startAnimating()
+        return cell
+    }
+    
 }

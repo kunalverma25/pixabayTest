@@ -81,7 +81,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="vCl-Je-nth"/>
                     <connections>
-                        <segue destination="eom-UG-5bm" kind="show" id="5sN-uf-XXQ"/>
+                        <outlet property="tableView" destination="nDg-ma-AXv" id="GYH-BY-MOz"/>
+                        <segue destination="eom-UG-5bm" kind="show" identifier="FullScreenImage" id="5sN-uf-XXQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0o-1G-uVz" sceneMemberID="firstResponder"/>
@@ -95,14 +96,30 @@
                     <view key="view" contentMode="scaleToFill" id="4Lm-71-pZX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5E-9a-28P">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="tPs-Cv-BU3"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="N9J-m1-iUV"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="X5E-9a-28P" firstAttribute="top" secondItem="QUo-7c-Wdw" secondAttribute="top" id="3qc-i7-IbM"/>
+                            <constraint firstAttribute="bottom" secondItem="X5E-9a-28P" secondAttribute="bottom" constant="693" id="CKo-ic-Keh"/>
+                            <constraint firstItem="QUo-7c-Wdw" firstAttribute="trailing" secondItem="X5E-9a-28P" secondAttribute="trailing" id="V3T-9s-lgx"/>
+                            <constraint firstItem="X5E-9a-28P" firstAttribute="leading" secondItem="QUo-7c-Wdw" secondAttribute="leading" id="qmJ-JM-zaa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QUo-7c-Wdw"/>
                     </view>
                     <navigationItem key="navigationItem" id="w36-Lt-AHS"/>
+                    <connections>
+                        <outlet property="scrollView" destination="X5E-9a-28P" id="uNu-yM-G7f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHt-p0-1CV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2716" y="130"/>
+            <point key="canvasLocation" x="2715.9420289855075" y="129.91071428571428"/>
         </scene>
     </scenes>
 </document>

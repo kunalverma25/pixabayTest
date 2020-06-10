@@ -16,6 +16,9 @@ class FullScreenImageViewController: UIViewController, FullScreenImageDisplayLog
     var interactor: FullScreenImageBusinessLogic?
     var router: (NSObjectProtocol & FullScreenImageRoutingLogic & FullScreenImageDataPassing)?
     
+    // MARK: Outlets
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
