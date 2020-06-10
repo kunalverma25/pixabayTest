@@ -15,6 +15,9 @@ class ImageSearchNetworkWorker {
     }
     
     // Make a download queue here to add images
+    // Add universal Indicator for Downloading
+    // Like StatusBarActivityIndicator
+    // Which is deprecated & doesn't work on notch devices anyways
     func downloadAndSaveImage(url: String) {
         SearchURLTask.downloadImage(url: url) { (result) in
             guard let data = try? result.get(), let image = UIImage(data: data) else {
