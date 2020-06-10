@@ -39,6 +39,6 @@ class ImageSearchPresenter: ImageSearchPresentationLogic {
     }
     
     func showError(_ errorMessage: String) {
-        
+        viewController?.showError(errorMessage: errorMessage)
     }
 }

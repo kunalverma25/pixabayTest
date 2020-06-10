@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol ResultsListRoutingLogic: AnyObject {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToFullScreenImage(segue: UIStoryboardSegue?)
 }
 
 protocol ResultsListDataPassing {
@@ -21,30 +21,15 @@ class ResultsListRouter: NSObject, ResultsListRoutingLogic, ResultsListDataPassi
     var dataStore: ResultsListDataStore?
     
     // MARK: Routing
+    func routeToFullScreenImage(segue: UIStoryboardSegue?) {
+        guard let segue = segue else { return }
+        guard let destVC = segue.destination as? FullScreenImageViewController, var destDS = destVC.router?.dataStore else { return }
+        guard let ds = dataStore else { return }
+        passDataToResultList(source: ds, dest: &destDS)
+    }
     
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
-    
-    // MARK: Navigation
-    
-    //func navigateToSomewhere(source: ResultsListViewController, destination: SomewhereViewController) {
-    //  source.show(destination, sender: nil)
-    //}
-    
-    // MARK: Passing data
-    
-    //func passDataToSomewhere(source: ResultsListDataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
+    func passDataToResultList(source: ResultsListDataStore, dest: inout FullScreenImageDataStore) {
+        dest.images = source.searchResult?.imageList
+        dest.index = viewController?.selectedIndex
+    }
 }

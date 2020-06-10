@@ -155,10 +155,12 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 7 images.
   struct image {
     /// Image `comment`.
     static let comment = Rswift.ImageResource(bundle: R.hostingBundle, name: "comment")
+    /// Image `download`.
+    static let download = Rswift.ImageResource(bundle: R.hostingBundle, name: "download")
     /// Image `launchScreenLogo`.
     static let launchScreenLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "launchScreenLogo")
     /// Image `like`.
@@ -174,6 +176,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "comment", bundle: ..., traitCollection: ...)`
     static func comment(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.comment, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "download", bundle: ..., traitCollection: ...)`
+    static func download(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.download, compatibleWith: traitCollection)
     }
     #endif
 
@@ -246,10 +255,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
+    /// Nib `FullImageCell`.
+    static let fullImageCell = _R.nib._FullImageCell()
     /// Nib `ResultListingCell`.
     static let resultListingCell = _R.nib._ResultListingCell()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "FullImageCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.fullImageCell) instead")
+    static func fullImageCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.fullImageCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "ResultListingCell", in: bundle)`
@@ -259,6 +278,10 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    static func fullImageCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FullImageCell? {
+      return R.nib.fullImageCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FullImageCell
+    }
+
     static func resultListingCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ResultListingCell? {
       return R.nib.resultListingCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ResultListingCell
     }
@@ -266,8 +289,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `FullImageCell`.
+    static let fullImageCell: Rswift.ReuseIdentifier<FullImageCell> = Rswift.ReuseIdentifier(identifier: "FullImageCell")
     /// Reuse identifier `ResultListingCell`.
     static let resultListingCell: Rswift.ReuseIdentifier<ResultListingCell> = Rswift.ReuseIdentifier(identifier: "ResultListingCell")
 
@@ -300,7 +325,28 @@ struct _R: Rswift.Validatable {
   #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _FullImageCell.validate()
       try _ResultListingCell.validate()
+    }
+
+    struct _FullImageCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = FullImageCell
+
+      let bundle = R.hostingBundle
+      let identifier = "FullImageCell"
+      let name = "FullImageCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FullImageCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FullImageCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "download", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'download' is used in nib 'FullImageCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
     }
 
     struct _ResultListingCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {

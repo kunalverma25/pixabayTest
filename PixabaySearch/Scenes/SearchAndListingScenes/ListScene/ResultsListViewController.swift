@@ -19,6 +19,9 @@ class ResultsListViewController: UIViewController, ResultsListDisplayLogic {
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: Variables
+    var selectedIndex = 0
+    
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -115,6 +118,11 @@ extension ResultsListViewController: UITableViewDelegate, UITableViewDataSource,
         if indexPaths.contains(where: isLoadingCell) {
             interactor?.fetchMoreImages()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        self.performSegue(withIdentifier: R.segue.resultsListViewController.fullScreenImage, sender: nil)
     }
     
     func isLoadingCell(for indexPath: IndexPath) -> Bool {

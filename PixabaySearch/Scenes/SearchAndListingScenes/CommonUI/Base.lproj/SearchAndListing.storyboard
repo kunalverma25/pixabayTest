@@ -97,24 +97,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5E-9a-28P">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T5Z-nA-mYD">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="tPs-Cv-BU3"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="N9J-m1-iUV"/>
-                            </scrollView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r2l-gY-xH8">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="X5E-9a-28P" firstAttribute="top" secondItem="QUo-7c-Wdw" secondAttribute="top" id="3qc-i7-IbM"/>
-                            <constraint firstAttribute="bottom" secondItem="X5E-9a-28P" secondAttribute="bottom" constant="693" id="CKo-ic-Keh"/>
-                            <constraint firstItem="QUo-7c-Wdw" firstAttribute="trailing" secondItem="X5E-9a-28P" secondAttribute="trailing" id="V3T-9s-lgx"/>
-                            <constraint firstItem="X5E-9a-28P" firstAttribute="leading" secondItem="QUo-7c-Wdw" secondAttribute="leading" id="qmJ-JM-zaa"/>
+                            <constraint firstItem="QUo-7c-Wdw" firstAttribute="trailing" secondItem="T5Z-nA-mYD" secondAttribute="trailing" id="6rJ-cx-8Fx"/>
+                            <constraint firstItem="T5Z-nA-mYD" firstAttribute="leading" secondItem="QUo-7c-Wdw" secondAttribute="leading" id="A8L-NG-7Tn"/>
+                            <constraint firstAttribute="bottom" secondItem="T5Z-nA-mYD" secondAttribute="bottom" id="Stt-6s-866"/>
+                            <constraint firstItem="T5Z-nA-mYD" firstAttribute="top" secondItem="QUo-7c-Wdw" secondAttribute="top" id="XaJ-Rk-0T3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QUo-7c-Wdw"/>
                     </view>
                     <navigationItem key="navigationItem" id="w36-Lt-AHS"/>
                     <connections>
-                        <outlet property="scrollView" destination="X5E-9a-28P" id="uNu-yM-G7f"/>
+                        <outlet property="collectionView" destination="T5Z-nA-mYD" id="QnO-h7-fBm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHt-p0-1CV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

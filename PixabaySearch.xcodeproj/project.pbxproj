@@ -32,15 +32,15 @@
 		C7BACADC2490F94A00C4FFCF /* ResultsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACAD62490F94A00C4FFCF /* ResultsListViewController.swift */; };
 		C7BACADD2490F94A00C4FFCF /* ResultsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACAD72490F94A00C4FFCF /* ResultsListInteractor.swift */; };
 		C7BACAE42490F96F00C4FFCF /* FullScreenImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACADE2490F96F00C4FFCF /* FullScreenImagePresenter.swift */; };
-		C7BACAE52490F96F00C4FFCF /* FullScreenImageWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACADF2490F96F00C4FFCF /* FullScreenImageWorker.swift */; };
 		C7BACAE62490F96F00C4FFCF /* FullScreenImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACAE02490F96F00C4FFCF /* FullScreenImageRouter.swift */; };
-		C7BACAE72490F96F00C4FFCF /* FullScreenImageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACAE12490F96F00C4FFCF /* FullScreenImageModels.swift */; };
 		C7BACAE82490F96F00C4FFCF /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACAE22490F96F00C4FFCF /* FullScreenImageViewController.swift */; };
 		C7BACAE92490F96F00C4FFCF /* FullScreenImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACAE32490F96F00C4FFCF /* FullScreenImageInteractor.swift */; };
 		C7BACAEE2490FA6B00C4FFCF /* ResultListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACAEC2490FA6B00C4FFCF /* ResultListingCell.swift */; };
 		C7BACAEF2490FA6B00C4FFCF /* ResultListingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7BACAED2490FA6B00C4FFCF /* ResultListingCell.xib */; };
 		C7BACAF2249129B200C4FFCF /* PixabayModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACAF1249129B200C4FFCF /* PixabayModels.swift */; };
 		C7BACAF424912A2300C4FFCF /* PixabayNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACAF324912A2300C4FFCF /* PixabayNetworking.swift */; };
+		C7BACAF92491548500C4FFCF /* FullImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACAF72491548500C4FFCF /* FullImageCell.swift */; };
+		C7BACAFA2491548500C4FFCF /* FullImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7BACAF82491548500C4FFCF /* FullImageCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,15 +85,15 @@
 		C7BACAD62490F94A00C4FFCF /* ResultsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsListViewController.swift; sourceTree = "<group>"; };
 		C7BACAD72490F94A00C4FFCF /* ResultsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsListInteractor.swift; sourceTree = "<group>"; };
 		C7BACADE2490F96F00C4FFCF /* FullScreenImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImagePresenter.swift; sourceTree = "<group>"; };
-		C7BACADF2490F96F00C4FFCF /* FullScreenImageWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageWorker.swift; sourceTree = "<group>"; };
 		C7BACAE02490F96F00C4FFCF /* FullScreenImageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageRouter.swift; sourceTree = "<group>"; };
-		C7BACAE12490F96F00C4FFCF /* FullScreenImageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageModels.swift; sourceTree = "<group>"; };
 		C7BACAE22490F96F00C4FFCF /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
 		C7BACAE32490F96F00C4FFCF /* FullScreenImageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageInteractor.swift; sourceTree = "<group>"; };
 		C7BACAEC2490FA6B00C4FFCF /* ResultListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListingCell.swift; sourceTree = "<group>"; };
 		C7BACAED2490FA6B00C4FFCF /* ResultListingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultListingCell.xib; sourceTree = "<group>"; };
 		C7BACAF1249129B200C4FFCF /* PixabayModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayModels.swift; sourceTree = "<group>"; };
 		C7BACAF324912A2300C4FFCF /* PixabayNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixabayNetworking.swift; sourceTree = "<group>"; };
+		C7BACAF72491548500C4FFCF /* FullImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageCell.swift; sourceTree = "<group>"; };
+		C7BACAF82491548500C4FFCF /* FullImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullImageCell.xib; sourceTree = "<group>"; };
 		D650354D4A0E8714DDA1B0A4 /* Pods-PixabaySearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixabaySearch.debug.xcconfig"; path = "Target Support Files/Pods-PixabaySearch/Pods-PixabaySearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -253,10 +253,9 @@
 		C7BACAD02490F8FC00C4FFCF /* FullScreenImageScene */ = {
 			isa = PBXGroup;
 			children = (
+				C7BACAF52491544D00C4FFCF /* Cells */,
 				C7BACADE2490F96F00C4FFCF /* FullScreenImagePresenter.swift */,
-				C7BACADF2490F96F00C4FFCF /* FullScreenImageWorker.swift */,
 				C7BACAE02490F96F00C4FFCF /* FullScreenImageRouter.swift */,
-				C7BACAE12490F96F00C4FFCF /* FullScreenImageModels.swift */,
 				C7BACAE22490F96F00C4FFCF /* FullScreenImageViewController.swift */,
 				C7BACAE32490F96F00C4FFCF /* FullScreenImageInteractor.swift */,
 			);
@@ -287,6 +286,23 @@
 				C7BACAF324912A2300C4FFCF /* PixabayNetworking.swift */,
 			);
 			path = CommonFunctions;
+			sourceTree = "<group>";
+		};
+		C7BACAF52491544D00C4FFCF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACAF62491545A00C4FFCF /* FullImageCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C7BACAF62491545A00C4FFCF /* FullImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACAF72491548500C4FFCF /* FullImageCell.swift */,
+				C7BACAF82491548500C4FFCF /* FullImageCell.xib */,
+			);
+			path = FullImageCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7BACAFA2491548500C4FFCF /* FullImageCell.xib in Resources */,
 				C7BACA5D24907A3500C4FFCF /* LaunchScreen.storyboard in Resources */,
 				C7BACA5A24907A3500C4FFCF /* Assets.xcassets in Resources */,
 				C7BACA5824907A3300C4FFCF /* SearchAndListing.storyboard in Resources */,
@@ -446,7 +463,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7BACAE72490F96F00C4FFCF /* FullScreenImageModels.swift in Sources */,
 				C7BACA7824907EE500C4FFCF /* ImageSearchInteractor.swift in Sources */,
 				C7BACAE62490F96F00C4FFCF /* FullScreenImageRouter.swift in Sources */,
 				C7BACAE42490F96F00C4FFCF /* FullScreenImagePresenter.swift in Sources */,
@@ -459,6 +475,7 @@
 				C7BACA7B2490800200C4FFCF /* StringExtensions.swift in Sources */,
 				C7BACAF2249129B200C4FFCF /* PixabayModels.swift in Sources */,
 				C7BACAEE2490FA6B00C4FFCF /* ResultListingCell.swift in Sources */,
+				C7BACAF92491548500C4FFCF /* FullImageCell.swift in Sources */,
 				C7BACADD2490F94A00C4FFCF /* ResultsListInteractor.swift in Sources */,
 				C7BACADC2490F94A00C4FFCF /* ResultsListViewController.swift in Sources */,
 				C7BACAD82490F94A00C4FFCF /* ResultsListPresenter.swift in Sources */,
@@ -466,7 +483,6 @@
 				C7BACAC92490BAE900C4FFCF /* SpringIndicator.swift in Sources */,
 				C7BACAE92490F96F00C4FFCF /* FullScreenImageInteractor.swift in Sources */,
 				C7BACA7324907EE500C4FFCF /* ImageSearchPresenter.swift in Sources */,
-				C7BACAE52490F96F00C4FFCF /* FullScreenImageWorker.swift in Sources */,
 				C7BACAE82490F96F00C4FFCF /* FullScreenImageViewController.swift in Sources */,
 				C7BACA6C24907DAF00C4FFCF /* AppConstants.swift in Sources */,
 				C7BACA7724907EE500C4FFCF /* ImageSearchViewController.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FullScreenImagePresentationLogic: AnyObject {
-    func presentSomething()
+    
 }
 
 class FullScreenImagePresenter: FullScreenImagePresentationLogic {
@@ -17,7 +17,4 @@ class FullScreenImagePresenter: FullScreenImagePresentationLogic {
     
     // MARK: Presentation Logic
     
-    func presentSomething() {
-        viewController?.displaySomething()
-    }
 }

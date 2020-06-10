@@ -14,6 +14,7 @@ protocol ImageSearchDisplayLogic: AnyObject {
     func showResultList()
     func showLoader()
     func hideLoader()
+    func showError(_ errorMessage: String)
 }
 
 class ImageSearchViewController: UIViewController, ImageSearchDisplayLogic {
@@ -107,6 +108,11 @@ class ImageSearchViewController: UIViewController, ImageSearchDisplayLogic {
     func showResultList() {
         searchController?.searchBar.text = nil
         self.performSegue(withIdentifier: R.segue.imageSearchViewController.resultList, sender: nil)
+    }
+    
+    func showError(_ errorMessage: String) {
+        let alert = UIAlertController(title: errorMessage, message: nil, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func reloadTable() {

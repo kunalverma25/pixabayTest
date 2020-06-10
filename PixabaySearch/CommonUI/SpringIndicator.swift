@@ -102,7 +102,7 @@ open class SpringIndicatorView: UIView {
     /// Line thickness.
     @IBInspectable open var lineWidth: CGFloat = 2
     /// Line Color. Default is gray.
-    @IBInspectable open var lineColor: UIColor = .orange
+    @IBInspectable open var lineColor: UIColor = .systemRed
     /// Line Colors. If set, lineColor is not used.
     open var lineColors: [UIColor] = []
     /// Cap style. Options are `round' and `square'. true is `round`. Default is false

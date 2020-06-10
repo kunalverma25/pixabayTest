@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FullImageCell" id="gTV-IL-0wX" customClass="FullImageCell" customModule="PixabaySearch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="318" height="466"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="318" height="466"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ruu-TM-ZgR">
+                        <rect key="frame" x="0.0" y="0.0" width="318" height="386"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdi-oj-eSj">
+                        <rect key="frame" x="20" y="406" width="278" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Jek-FT-pTH"/>
+                        </constraints>
+                        <state key="normal" title="Download HQ Image" image="download"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="titleLabel.adjustsFontSizeToFitWidth" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="downloadImageTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="4uJ-Zp-tr9"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="zdi-oj-eSj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="3lc-c5-5AE"/>
+                <constraint firstItem="zdi-oj-eSj" firstAttribute="top" secondItem="Ruu-TM-ZgR" secondAttribute="bottom" constant="20" id="4Tx-kh-xUs"/>
+                <constraint firstItem="Ruu-TM-ZgR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Fcd-aa-siT"/>
+                <constraint firstAttribute="bottom" secondItem="zdi-oj-eSj" secondAttribute="bottom" constant="20" id="Kth-5b-dK6"/>
+                <constraint firstAttribute="trailing" secondItem="Ruu-TM-ZgR" secondAttribute="trailing" id="Sew-bJ-SvL"/>
+                <constraint firstAttribute="trailing" secondItem="zdi-oj-eSj" secondAttribute="trailing" constant="20" id="mun-Jy-EMt"/>
+                <constraint firstItem="Ruu-TM-ZgR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sFV-rs-TTf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="318" height="466"/>
+            <connections>
+                <outlet property="largeImageView" destination="Ruu-TM-ZgR" id="je8-74-Rzp"/>
+            </connections>
+            <point key="canvasLocation" x="372.46376811594206" y="322.76785714285711"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="download" width="45" height="45"/>
+    </resources>
+</document>

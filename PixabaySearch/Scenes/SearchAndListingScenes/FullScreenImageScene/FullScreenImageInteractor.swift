@@ -9,23 +9,23 @@
 import UIKit
 
 protocol FullScreenImageBusinessLogic: AnyObject {
-    func doSomething()
+    func downloadImage(url: String)
 }
 
 protocol FullScreenImageDataStore {
-    //var name: String { get set }
+    var images: [PixImages]? { get set }
+    var index: Int? { get set }
 }
 
 class FullScreenImageInteractor: FullScreenImageBusinessLogic, FullScreenImageDataStore {
     var presenter: FullScreenImagePresentationLogic?
-    var worker: FullScreenImageWorker?
+    
+    // MARK: DataStore
+    var images: [PixImages]?
+    var index: Int?
     
     // MARK: Business Logic
-    
-    func doSomething() {
-        worker = FullScreenImageWorker()
-        worker?.doSomeWork()
+    func downloadImage(url: String) {
         
-        presenter?.presentSomething()
     }
 }
