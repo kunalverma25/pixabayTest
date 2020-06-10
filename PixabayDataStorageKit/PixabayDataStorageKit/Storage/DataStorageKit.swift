@@ -76,8 +76,9 @@ extension DataStorageKit {
     func saveSearchTerm(_ term: String) {
         let defaults = UserDefaults.standard
         var searchArr: [String] = (defaults.array(forKey: DataStorageKit.SEARCH_TERM_STORAGE_KEY) as? [String]) ?? []
-        // This should ideally handle duplication and similar use cases
-        // For now let's assume every search term will be different
+        if searchArr.contains(term) {
+            searchArr.removeAll(where: { $0 == term })
+        }
         searchArr.insert(term, at: 0)
         // 10 is the limit here
         searchArr = Array(searchArr.prefix(DataStorageKit.storagelimit))

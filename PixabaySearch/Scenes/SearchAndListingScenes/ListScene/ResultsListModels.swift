@@ -1,5 +1,5 @@
 //
-//  ImageSearchWorker.swift
+//  ResultsListModels.swift
 //  PixabaySearch
 //
 //  Created by Kunal Verma on 6/10/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageSearchWorker {
-    func doSomeWork() {
-    }
+enum ResultsList {
+    // MARK: ResultsList Models
+    
 }

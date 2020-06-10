@@ -89,6 +89,30 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
+  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  struct segue {
+    /// This struct is generated for `ImageSearchViewController`, and contains static references to 1 segues.
+    struct imageSearchViewController {
+      /// Segue identifier `ResultList`.
+      static let resultList: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ImageSearchViewController, ResultsListViewController> = Rswift.StoryboardSegueIdentifier(identifier: "ResultList")
+
+      #if os(iOS) || os(tvOS)
+      /// Optionally returns a typed version of segue `ResultList`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func resultList(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ImageSearchViewController, ResultsListViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.imageSearchViewController.resultList, segue: segue)
+      }
+      #endif
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
+
+  #if os(iOS) || os(tvOS)
   /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
@@ -160,6 +184,34 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  struct nib {
+    /// Nib `ResultListingCell`.
+    static let resultListingCell = _R.nib._ResultListingCell()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "ResultListingCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.resultListingCell) instead")
+    static func resultListingCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.resultListingCell)
+    }
+    #endif
+
+    static func resultListingCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ResultListingCell? {
+      return R.nib.resultListingCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ResultListingCell
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `ResultListingCell`.
+    static let resultListingCell: Rswift.ReuseIdentifier<ResultListingCell> = Rswift.ReuseIdentifier(identifier: "ResultListingCell")
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -179,6 +231,26 @@ struct _R: Rswift.Validatable {
     try storyboard.validate()
     #endif
   }
+
+  #if os(iOS) || os(tvOS)
+  struct nib {
+    struct _ResultListingCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = ResultListingCell
+
+      let bundle = R.hostingBundle
+      let identifier = "ResultListingCell"
+      let name = "ResultListingCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ResultListingCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ResultListingCell
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
 
   #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {
@@ -213,11 +285,23 @@ struct _R: Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
 
       let bundle = R.hostingBundle
+      let imageSearchViewController = StoryboardViewControllerResource<ImageSearchViewController>(identifier: "ImageSearchViewController")
       let name = "SearchAndListing"
+      let resultsListViewController = StoryboardViewControllerResource<ResultsListViewController>(identifier: "ResultsListViewController")
+
+      func imageSearchViewController(_: Void = ()) -> ImageSearchViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: imageSearchViewController)
+      }
+
+      func resultsListViewController(_: Void = ()) -> ResultsListViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: resultsListViewController)
+      }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.searchAndListing().imageSearchViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'imageSearchViewController' could not be loaded from storyboard 'SearchAndListing' as 'ImageSearchViewController'.") }
+        if _R.storyboard.searchAndListing().resultsListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'resultsListViewController' could not be loaded from storyboard 'SearchAndListing' as 'ResultsListViewController'.") }
       }
 
       fileprivate init() {}

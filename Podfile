@@ -9,5 +9,6 @@ target 'PixabaySearch' do
   pod 'R.swift'
   pod 'SwiftLint'
   pod 'DZNEmptyDataSet'
+  pod 'Kingfisher'
 
 end

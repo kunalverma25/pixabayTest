@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "155E8529-53D0-40DC-BB99-E1E3A12D1593"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F604AB1A-BD08-4DEE-B062-ACF869B44FE4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PixabaySearch/Scenes/SearchAndListingScenes/SearchScene/ImageSearchInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "searchImages(query:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F604AB1A-BD08-4DEE-B062-ACF869B44FE4 - d9e7e0fb3ff62f8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;PixabaySearch.ImageSearch.PixSearchResult&gt;, Swift.Error&gt;) -&gt; () in PixabaySearch.ImageSearchInteractor.searchImages(query: Swift.String) -&gt; ()"
+                  moduleName = "PixabaySearch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kunal.verma/Desktop/PixabaySearch/PixabaySearch/Scenes/SearchAndListingScenes/SearchScene/ImageSearchInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "1694">
+               </Location>
+               <Location
+                  uuid = "F604AB1A-BD08-4DEE-B062-ACF869B44FE4 - e877ea8339c89233"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;PixabaySearch.ImageSearch.PixSearchResult&gt;, Swift.Error&gt;) -&gt; () in PixabaySearch.ImageSearchInteractor.searchImages(query: Swift.String) -&gt; ()"
+                  moduleName = "eval105.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kunal.verma/Desktop/PixabaySearch/PixabaySearch/Scenes/SearchAndListingScenes/SearchScene/ImageSearchInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "1694">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

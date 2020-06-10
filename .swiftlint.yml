@@ -1,4 +1,17 @@
 # rule identifiers to exclude from running
+disabled_rules:
+ - line_length
+ - identifier_name
+ - large_tuple
+ - function_parameter_count
+ - implicit_getter
+ - function_body_length
+ - type_name
+ - file_length
+ - type_body_length
+ - colon
+ - trailing_whitespace
+ - orphaned_doc_comment
 
 # rule identifiers to opt in
 opt_in_rules:

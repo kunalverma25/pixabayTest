@@ -7,17 +7,28 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 protocol ImageSearchDisplayLogic: AnyObject {
-    func displaySomething()
+    func setSearchQueriesInView(queries: [String])
+    func showResultList()
+    func showLoader()
+    func hideLoader()
 }
 
 class ImageSearchViewController: UIViewController, ImageSearchDisplayLogic {
     var interactor: ImageSearchBusinessLogic?
     var router: (NSObjectProtocol & ImageSearchRoutingLogic & ImageSearchDataPassing)?
     
-    // MARK: Object lifecycle
+    // MARK: Outlets
+    @IBOutlet weak var tableView: UITableView!
     
+    // MARK: Variables
+    var searchController: UISearchController?
+    var progressIndicator: ProgressIndicator?
+    var searchQueries: [String] = []
+    
+    // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -55,26 +66,55 @@ class ImageSearchViewController: UIViewController, ImageSearchDisplayLogic {
     }
     
     // MARK: View lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Search Pixabay"
-        let search = UISearchController(searchResultsController: nil)
-        search.searchResultsUpdater = self
-        search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Type something here to search"
-        search.searchBar.delegate = self
-        navigationItem.searchController = search
+        searchController = UISearchController(searchResultsController: nil)
+        searchController?.searchResultsUpdater = self
+        searchController?.obscuresBackgroundDuringPresentation = false
+        searchController?.searchBar.placeholder = "Type something here to search"
+        searchController?.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        self.tableView.tableFooterView = UIView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if progressIndicator == nil {
+            progressIndicator = ProgressIndicator(withView: self.view)
+            setupStartingView()
+        }
     }
     
     // MARK: View Logic
-    
-    func doSomething() {
-        interactor?.doSomething()
+    func setupStartingView() {
+        interactor?.fetchSavedQueries()
     }
     
-    func displaySomething() {
-        //nameTextField.text = viewModel.name
+    func setSearchQueriesInView(queries: [String]) {
+        searchQueries = queries
+        self.reloadTable()
+    }
+    
+    func showLoader() {
+        progressIndicator?.showProgressView()
+    }
+    
+    func hideLoader() {
+        progressIndicator?.hideProgressView()
+    }
+    
+    func showResultList() {
+        searchController?.searchBar.text = nil
+        self.performSegue(withIdentifier: R.segue.imageSearchViewController.resultList, sender: nil)
+    }
+    
+    func reloadTable() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.reloadData()
     }
 }
 
@@ -85,6 +125,51 @@ extension ImageSearchViewController: UISearchResultsUpdating, UISearchBarDelegat
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("Search Clicked")
+        guard let text = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+            return
+        }
+        interactor?.searchImages(query: text)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        interactor?.fetchSavedQueries()
+        reloadTable()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        reloadTable()
+    }
+}
+
+extension ImageSearchViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController?.searchBar.isFirstResponder == true {
+            return searchQueries.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
+        cell.textLabel?.text = searchQueries[indexPath.row]
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let query = searchQueries[indexPath.row]
+        searchController?.searchBar.text = query
+        searchController?.searchBar.resignFirstResponder()
+        interactor?.searchImages(query: query)
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        var text = "Let's Search Some Images!"
+        if searchController?.searchBar.isFirstResponder == true {
+            text = "No Recent Searches"
+        }
+        
+        return NSAttributedString(string: text, attributes: [.foregroundColor : UIColor.systemRed, .font: UIFont.boldSystemFont(ofSize: 15)])
     }
 }

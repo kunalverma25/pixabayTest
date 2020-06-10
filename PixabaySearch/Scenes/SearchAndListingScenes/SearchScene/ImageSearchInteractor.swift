@@ -9,21 +9,53 @@
 import UIKit
 
 protocol ImageSearchBusinessLogic: AnyObject {
-    func doSomething()
+    func fetchSavedQueries()
+    func searchImages(query: String)
 }
 
 protocol ImageSearchDataStore {
-    //var name: String { get set }
+    var savedQueries: [String] { get set }
+    var searchResult: ImageSearch.PixSearchResult? { get set }
 }
 
 class ImageSearchInteractor: ImageSearchBusinessLogic, ImageSearchDataStore {
     var presenter: ImageSearchPresentationLogic?
-    var worker: ImageSearchWorker?
+    var storageWorker: ImageSearchStorageWorker?
+    var networkWorker: ImageSearchNetworkWorker?
+    
+    // MARK: DataStore
+    var savedQueries: [String] = []
+    var searchResult: ImageSearch.PixSearchResult?
     
     // MARK: Business Logic
+    func fetchSavedQueries() {
+        storageWorker = ImageSearchStorageWorker()
+        savedQueries = storageWorker?.getSavedQueriesFromDB() ?? []
+        presenter?.presentQueries(with: savedQueries)
+    }
     
-    func doSomething() {
-        worker = ImageSearchWorker()
-        worker?.doSomeWork()
+    func searchImages(query: String) {
+        presenter?.showLoader()
+        networkWorker = ImageSearchNetworkWorker()
+        networkWorker?.searchWithQuery(query, completion: { [weak self] (result) in
+            self?.presenter?.hideLoader()
+            switch result {
+            case .failure(let error):
+                self?.presenter?.showError(error.localizedDescription)
+            case .success(let data):
+                guard let response = data, response.imageList?.isEmpty == false else {
+                    self?.presenter?.showError("No Results found")
+                    return
+                }
+                self?.searchImagesCompleted(query: query, result: response)
+            }
+        })
+    }
+    
+    func searchImagesCompleted(query: String, result: ImageSearch.PixSearchResult) {
+        searchResult = result
+        storageWorker = ImageSearchStorageWorker()
+        storageWorker?.saveQueryInDB(query)
+        presenter?.presentList()
     }
 }

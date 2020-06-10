@@ -18,5 +18,6 @@ struct AppConstants {
     
     /// Storage for application wide constants
     let pixabayAPIKey = "16971455-2a40fd7a1924a6c8ae46f3bfe"
+    let host          = "https://pixabay.com/api/"
     
 }
