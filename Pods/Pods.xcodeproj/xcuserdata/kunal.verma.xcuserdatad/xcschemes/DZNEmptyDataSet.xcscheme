@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B12748D8506CB48696BD90F2CA4F4E38"
-               BuildableName = "R.swift.Library.framework"
-               BlueprintName = "R.swift.Library"
+               BlueprintIdentifier = "F1BCD9702276377FB5B3BDB6EAF709D7"
+               BuildableName = "DZNEmptyDataSet.framework"
+               BlueprintName = "DZNEmptyDataSet"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

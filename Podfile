@@ -8,5 +8,6 @@ target 'PixabaySearch' do
   # Pods for PixabaySearch
   pod 'R.swift'
   pod 'SwiftLint'
+  pod 'DZNEmptyDataSet'
 
 end

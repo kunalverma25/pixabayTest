@@ -1,24 +1,28 @@
 PODS:
+  - DZNEmptyDataSet (1.8.1)
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
   - SwiftLint (0.39.2)
 
 DEPENDENCIES:
+  - DZNEmptyDataSet
   - R.swift
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - DZNEmptyDataSet
     - R.swift
     - R.swift.Library
     - SwiftLint
 
 SPEC CHECKSUMS:
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 442c8bff8910f0bd90f94d5882d1d5458f6a22cc
+PODFILE CHECKSUM: 5c12cad78220e137b4fff51455d0873af70990ab
 
 COCOAPODS: 1.9.3

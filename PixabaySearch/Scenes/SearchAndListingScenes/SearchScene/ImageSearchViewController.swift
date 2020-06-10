@@ -12,7 +12,7 @@ protocol ImageSearchDisplayLogic: AnyObject {
     func displaySomething()
 }
 
-class ImageSearchViewController: UIViewController, ImageSearchDisplayLogic, UISearchResultsUpdating {
+class ImageSearchViewController: UIViewController, ImageSearchDisplayLogic {
     var interactor: ImageSearchBusinessLogic?
     var router: (NSObjectProtocol & ImageSearchRoutingLogic & ImageSearchDataPassing)?
     
@@ -63,12 +63,8 @@ class ImageSearchViewController: UIViewController, ImageSearchDisplayLogic, UISe
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Type something here to search"
+        search.searchBar.delegate = self
         navigationItem.searchController = search
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-        print(text)
     }
     
     // MARK: View Logic
@@ -79,5 +75,16 @@ class ImageSearchViewController: UIViewController, ImageSearchDisplayLogic, UISe
     
     func displaySomething() {
         //nameTextField.text = viewModel.name
+    }
+}
+
+extension ImageSearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        print(text)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Search Clicked")
     }
 }

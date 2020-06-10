@@ -23,7 +23,7 @@ public enum StorageType {
 
 final public class DataStorageKit {
     
-    //MARK: - Private functionality and variables
+    // MARK: - Private functionality and variables
     private static var storageKit: DataStorageKit?
     private static var storageType: StorageType = .userDefaults
     private static var storagelimit: Int = 0
@@ -31,7 +31,7 @@ final public class DataStorageKit {
     // Keys for different data types
     private static let SEARCH_TERM_STORAGE_KEY = "SEARCH_TERM_STORAGE_KEY"
     
-    //MARK: - Initialization
+    // MARK: - Initialization
     // This initization can be made general for all use cases
     // Currently this handles only one simple use case
     // Only for demo purpose, this handling should not be used in actual prod apps
